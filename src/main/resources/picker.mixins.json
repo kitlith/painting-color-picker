@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "pw.kitl.colorpicker.mixin",
+  "compatibilityLevel": "${java}",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "BasePaletteMixin",
+    "GuiCanvasEditMixin",
+    //? if =1.21.11 {
+    // "ModClientMixin",
+    //? }
+  ]
+}

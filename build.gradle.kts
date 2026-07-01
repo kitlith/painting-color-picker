@@ -1,6 +1,7 @@
 plugins {
     // This plugin applies the correct loom variant based on the Minecraft version
     id("dev.kikugie.loom-back-compat")
+    id("dev.kikugie.fletching-table.fabric") version "0.1.0-alpha.22"
 }
 
 // DO NOT set group = ...!
@@ -30,6 +31,18 @@ repositories {
     }
     strictMaven("https://www.cursemaven.com", "CurseForge", "curse.maven")
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
+
+    // Map GitHub Releases as an Ivy repository using Maven structure
+    // Using this to grab the SMPOnline version of Joy of Painting
+    ivy {
+        url = uri("https://github.com")
+        patternLayout {
+            artifact("[organisation]/[module]/releases/download/[revision]/[artifact].[ext]")
+        }
+        metadataSources {
+            artifact() // Tells Gradle not to look for pom.xml or ivy.xml files
+        }
+    }
 }
 
 dependencies {
@@ -48,6 +61,21 @@ dependencies {
     // Use `mod{dependency type}` even on 26.1+ - loom-back-compat converts them
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
     fapi("fabric-lifecycle-events-v1", "fabric-resource-loader-v0", "fabric-content-registries-v0", "fabric-registry-sync-v0")
+
+    if (sc.current.parsed <= "1.21.3") { // official
+        modImplementation(fletchingTable.modrinth("joy-of-painting", sc.current.version))
+    } else if (sc.current.parsed.matches("1.21.11")) { // SMPOnline
+        modImplementation("CallMeCarsub:SMPOnline-Files:latest") {
+            artifact {
+                name = "xercapaint-1.21.11-smponline-1.0.0"
+                type = "jar"
+                extension = "jar"
+            }
+        }
+    }
+
+    // because joy of painting says it depends on all of fabric api
+    modLocalRuntime("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 }
 
 loom {

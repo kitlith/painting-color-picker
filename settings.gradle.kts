@@ -24,10 +24,9 @@ plugins {
 stonecutter {
     create(rootProject) {
         // See https://stonecutter.kikugie.dev/wiki/start/#choosing-minecraft-versions
-        versions("1.21.1", "1.21.11")
-        version("26.2.x", "26.2")
-        vcsVersion = "26.2.x"
+        versions("1.21.1", "1.21.3", "1.21.11")
+        vcsVersion = "1.21.3" // base on latest official Joy of Painting, the SMPOnline version can be not the vcsVersion.
     }
 }
 
-rootProject.name = "Template Fabric"
+rootProject.name = "Painting Color Picker"

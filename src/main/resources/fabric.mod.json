@@ -3,24 +3,25 @@
   "id": "${id}",
   "version": "${version}",
   "name": "${name}",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Adds the ability to see the hex code of a color on hover in a couple scenarios.",
   "authors": [
-    "Me!"
+    "Kitlith"
   ],
   "contact": {
-    "homepage": "https://stonecutter.kikugie.dev/",
-    "sources": "https://codeberg.org/stonecutter/template-fabric"
+    "homepage": "https://kitl.ing",
+    "sources": "https://github.com/kitlith/painting-color-picker"
   },
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/template/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.TemplateMod"
+      "pw.kitl.colorpicker.ColorPickerMod"
     ]
   },
   "mixins": [
-    "template.mixins.json"
+    "picker.mixins.json",
+    "dev-fix.mixins.json"
   ],
   "accessWidener": "template.ct",
   "depends": {

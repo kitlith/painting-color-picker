@@ -1,0 +1,11 @@
+{
+  "required": false,
+  "package": "pw.kitl.colorpicker.mixin",
+  "compatibilityLevel": "${java}",
+  "injectors": {
+    "defaultRequire": 0
+  },
+  "client": [
+    "ModClientMixin"
+  ]
+}

@@ -1,7 +1,7 @@
 # See https://stonecutter.kikugie.dev/wiki/config/properties#centralized-properties
-mod.id = "template"
-mod.name = "Template"
-mod.group = "com.example"
+mod.id = "jop_colorpicker"
+mod.name = "Painting Color Picker"
+mod.group = "pw.kitl"
 mod.version = "0.1.0"
 
 deps.fabric_loader = "0.19.3"
@@ -14,6 +14,12 @@ mod.mc_compat = ">=1.21 <=1.21.1"
 mod.mc_releases = ["1.21", "1.21.1"]
 
 deps.fabric_api = "0.116.10+1.21.1"
+
+["1.21.3"]
+mod.mc_compat = "1.21.3"
+mod.mc_releases = ["1.21.3"]
+
+deps.fabric_api = "0.114.1+1.21.3"
 
 ["1.21.11"]
 mod.mc_compat = "1.21.11"

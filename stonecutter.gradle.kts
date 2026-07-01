@@ -2,7 +2,7 @@ plugins {
     id("dev.kikugie.stonecutter")
 }
 
-stonecutter active "26.2.x"
+stonecutter active "1.21.3"
 
 // See https://stonecutter.kikugie.dev/wiki/config/params
 stonecutter parameters {
@@ -14,6 +14,9 @@ stonecutter parameters {
     replacements {
         string(current.parsed >= "1.21.11") {
             replace("ResourceLocation", "Identifier")
+            // to reflect the differences between v2 and the fork of v1 used on SMPOnline
+            replace("CUSTOM_COLOR_RADIUS", "customColorRadius")
+            replace("CUSTOM_COLOR_CENTERS", "customColorCenters")
         }
 
         string(current.parsed >= "26.1") {
